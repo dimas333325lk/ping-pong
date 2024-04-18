@@ -55,16 +55,20 @@ while game:
         if ball.rect.y > 450 or ball.rect.y <0:
             bally *= -1
             udar.play()
-        elif sprite.collide_rect(playerone,ball) or sprite.collide_rect(playertwo,ball):
+        if sprite.collide_rect(playerone,ball) or sprite.collide_rect(playertwo,ball):
             udar.play()
             ballx *= -1
-        elif ball.rect.x <0:
+            klk += 1
+        if ball.rect.x <0:
             window.blit(lose1,(0,200))
             finish = True
-        elif ball.rect.x >650:
+        if ball.rect.x >650:
             window.blit(lose2,(0,200))
             finish = True
-        
+        if klk == 10:
+            klk = 0
+            ballx *=1.3
+            bally *=1.3
         ball.reset()
         playerone.reset()
         playertwo.reset()
@@ -72,4 +76,3 @@ while game:
         playertwo.update_left()
     clock.tick(60)
     display.update()
-    
