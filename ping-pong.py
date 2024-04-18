@@ -45,6 +45,6 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game =False
-    clock.tick(360)
+    clock.tick(60)
     udar.play()
     display.update()
